@@ -1,5 +1,5 @@
 -- Customers
-CREATE TABLE customers (
+CREATE TABLE IF NOT EXISTS customers (
     customer_id varchar(50) PRIMARY KEY,
     customer_unique_id varchar(50),
     customer_zip_code_prefix integer,
@@ -8,7 +8,7 @@ CREATE TABLE customers (
 );
 
 -- Geolocation 
-CREATE TABLE geolocation (
+CREATE TABLE IF NOT EXISTS geolocation (
     geolocation_zip_code_prefix integer,
     geolocation_lat numeric,
     geolocation_lng numeric,
@@ -17,7 +17,7 @@ CREATE TABLE geolocation (
 );
 
 -- Orders
-CREATE TABLE orders (
+CREATE TABLE IF NOT EXISTS orders (
     order_id varchar(50) PRIMARY KEY,
     customer_id varchar(50) REFERENCES customers(customer_id),
     order_status varchar(20),
@@ -29,7 +29,7 @@ CREATE TABLE orders (
 );
 
 -- Order Items
-CREATE TABLE order_items (
+CREATE TABLE IF NOT EXISTS order_items (
     order_id varchar(50) REFERENCES orders(order_id),
     order_item_id integer,
     product_id varchar(50),
@@ -41,7 +41,7 @@ CREATE TABLE order_items (
 );
 
 -- Products
-CREATE TABLE products (
+CREATE TABLE IF NOT EXISTS products (
     product_id varchar(50) PRIMARY KEY,
     product_category_name varchar(100),
     product_name_length integer,
@@ -54,7 +54,7 @@ CREATE TABLE products (
 );
 
 -- Sellers
-CREATE TABLE sellers (
+CREATE TABLE IF NOT EXISTS sellers (
     seller_id varchar(50) PRIMARY KEY,
     seller_zip_code_prefix integer,
     seller_city varchar(100),
@@ -62,7 +62,7 @@ CREATE TABLE sellers (
 );
 
 -- Payments
-CREATE TABLE order_payments (
+CREATE TABLE IF NOT EXISTS order_payments (
     order_id varchar(50) REFERENCES orders(order_id),
     payment_sequential integer,
     payment_type varchar(20),
@@ -72,7 +72,7 @@ CREATE TABLE order_payments (
 );
 
 -- Reviews
-CREATE TABLE order_reviews (
+CREATE TABLE IF NOT EXISTS order_reviews (
     review_id varchar(50),
     order_id varchar(50) REFERENCES orders(order_id),
     review_score integer,
@@ -82,3 +82,8 @@ CREATE TABLE order_reviews (
     review_answer_timestamp timestamp,
     PRIMARY KEY (review_id, order_id)
 );
+
+CREATE INDEX idx_orders_customer_id ON orders(customer_id);
+CREATE INDEX idx_orders_status ON orders(order_status);
+CREATE INDEX idx_order_items_product_id ON order_items(product_id);
+CREATE INDEX idx_order_payments_order_id ON order_payments(order_id);
