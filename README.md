@@ -146,7 +146,7 @@ The analysis addresses the following six business questions. You can find the na
 
 ## Results & insights
 
-All insights, descriptive charts (if generated externally), and business takeaways are summarized in `INSIGHTS.md`. That file contains the distilled conclusions from the queries in `sql/03_analysis.sql`. For detailed query outputs, run the SQL in `sql/03_analysis.sql` and review the resulting tables or CSV exports.
+All insights and business takeaways are summarized in `INSIGHTS.md`. That file contains the distilled conclusions from the queries in `sql/03_analysis.sql`. For detailed query outputs, run the SQL in `sql/03_analysis.sql` and review the resulting tables or CSV exports.
 
 See: [INSIGHTS.md](INSIGHTS.md)
 
@@ -170,8 +170,6 @@ Contributions, fixes, or improvements are welcome. Suggested contribution steps:
 2. Create a branch for your change.
 3. Make changes and add or update tests / SQL samples.
 4. Open a pull request with a clear description of what you changed and why.
-
-Please include sample CSVs (if permissible) or minimal examples for easier testing.
 
 ---
 
