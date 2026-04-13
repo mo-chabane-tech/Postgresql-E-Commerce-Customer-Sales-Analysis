@@ -71,7 +71,13 @@ Note: The `data/` folder in this repo contains eight CSVs rather than nine — a
 
 Below are minimal instructions to reproduce the analysis locally. Adjust user/database names as needed.
 
-1) Start PostgreSQL and create a database & user (example):
+1) Clone reprository:
+  ```bash
+git clone "https://github.com/mo-chabane-tech/Postgresql-E-Commerce-Customer-Sales-Analysis.git"
+cd Postgresql-E-Commerce-Customer-Sales-Analysis
+```
+
+2) Start PostgreSQL and create a database & user (example):
 ```bash
 # create DB and role (run as a postgres superuser)
 createuser -P ecommerce_user
@@ -79,13 +85,13 @@ createuser -P ecommerce_user
 createdb -O ecommerce_user ecommerce_db
 ```
 
-2) Create schema and tables:
+3) Create schema and tables:
 ```bash
 # From the repository root
 psql -U ecommerce_user -d ecommerce_db -f sql/01_schema_setup.sql
 ```
 
-3) Import CSV data:
+4) Import CSV data:
 - The import script uses `\copy` (psql meta-command). Run it from the repo root so the `data/` paths in the script resolve correctly:
 ```bash
 psql -U ecommerce_user -d ecommerce_db -f sql/02_import.sql
@@ -94,7 +100,7 @@ Important:
 - `\copy` runs client-side in psql and reads files from where you run psql. If `02_import.sql` references `data/*.csv`, run the command from the repository root or adjust paths to absolute locations.
 - If your CSVs have different separators, encodings, or headers, adapt the `\copy` lines accordingly.
 
-4) Run analysis queries and create views:
+5) Run analysis queries and create views:
 ```bash
 # Create views used by the analysis (optional but recommended)
 psql -U ecommerce_user -d ecommerce_db -f sql/04_view.sql
