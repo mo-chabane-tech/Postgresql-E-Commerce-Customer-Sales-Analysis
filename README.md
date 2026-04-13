@@ -61,7 +61,7 @@ All SQL is written to be run with psql against a local PostgreSQL instance. View
 
 ## Dataset
 
-The dataset used is the "E‑Commerce Customer & Sales Analysis" dataset from Kaggle (not included here). Download the required CSV files from Kaggle and place them in the repository `data/` folder before running the import.
+The dataset used is the "Brazilian E-Commerce Public Dataset by Olist" dataset from Kaggle (not included here). Download the required CSV files from Kaggle and place them in the repository `data/` folder before running the import.
 
 Note: The `data/` folder in this repo contains eight CSVs rather than nine — a product category name / translation CSV is not included.
 
