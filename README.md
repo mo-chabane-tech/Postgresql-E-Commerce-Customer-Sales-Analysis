@@ -71,7 +71,7 @@ Note: The `data/` folder in this repo contains eight CSVs rather than nine — a
 
 Below are minimal instructions to reproduce the analysis locally. Adjust user/database names as needed.
 
-1) Clone reprository:
+1) Clone repository:
   ```bash
 git clone "https://github.com/mo-chabane-tech/Postgresql-E-Commerce-Customer-Sales-Analysis.git"
 cd Postgresql-E-Commerce-Customer-Sales-Analysis
